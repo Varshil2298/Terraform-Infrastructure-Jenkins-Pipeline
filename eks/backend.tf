@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket         = "remote-state-terraform-resources"
+    bucket         = "terraform-resource-remote-state-1092"
     region         = "ap-south-1"
     key            = "eks/terraform.tfstate"
   #  dynamodb_table = "Lock-Files"
