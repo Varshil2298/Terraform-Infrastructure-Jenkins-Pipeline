@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Git Pulling') {
             steps {
-                git branch: 'main', url: 'https://github.com/Varshil2298/EKS-Terraform-Jenkins-Pipeline.git'
+                git branch: 'dev/feature', url: 'https://github.com/Varshil2298/Terraform-Infrastructure-Jenkins-Pipeline.git'
             }
         }
         stage('Init') {
