@@ -1,7 +1,7 @@
 properties([
     parameters([
         string(
-            defaultValue: 'dev',
+            defaultValue: 'prod',
             name: 'Environment'
         ),
         choice(
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Git Pulling') {
             steps {
-                git branch: 'dev/feature', url: 'https://github.com/Varshil2298/Terraform-Infrastructure-Jenkins-Pipeline.git'
+                git branch: 'prod', url: 'https://github.com/Varshil2298/Terraform-Infrastructure-Jenkins-Pipeline.git'
             }
         }
         stage('Init') {
