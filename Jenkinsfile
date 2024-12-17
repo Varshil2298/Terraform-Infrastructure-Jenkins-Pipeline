@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Git Pulling') {
             steps {
-                git branch: 'dev/feature', url: 'https://github.com/Varshil2298/Terraform-Infrastructure-Jenkins-Pipeline.git'
+                git branch: 'development', url: 'https://github.com/Varshil2298/Terraform-Infrastructure-Jenkins-Pipeline.git'
             }
         }
         stage('Init') {
