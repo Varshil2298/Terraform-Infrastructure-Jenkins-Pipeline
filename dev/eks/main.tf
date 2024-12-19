@@ -4,7 +4,7 @@ locals {
 }
 
 module "eks" {
-  source = "../../dev/module/networking-kubernetes"
+  source = "../../module/networking-kubernetes"
 
   env                   = var.env
   cluster-name          = "${local.env}-${local.org}-${var.cluster-name}"
