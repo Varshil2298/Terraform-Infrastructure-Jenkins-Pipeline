@@ -20,7 +20,7 @@ pipeline {
         stage('Git Pulling') {
             steps {
                 git branch: 'development', url: 'https://github.com/Varshil2298/Terraform-Infrastructure-Jenkins-Pipeline.git'
-                credentials "github-pat"
+                credentials "github-pat" 
             }
         }
         stage('Init') {
