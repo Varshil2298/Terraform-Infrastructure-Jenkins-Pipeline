@@ -25,14 +25,14 @@ pipeline {
         stage('Init') {
             steps {
                 withAWS(credentials: 'aws-creds', region: 'ap-south-1') {
-                sh 'terraform -chdir=eks/ init -reconfigure'
+                sh 'terraform -chdir=prod/eks/ init -reconfigure'
                 }
             }
         }
         stage('Validate') {
             steps {
                 withAWS(credentials: 'aws-creds', region: 'ap-south-1') {
-                sh 'terraform -chdir=eks/ validate'
+                sh 'terraform -chdir=prod/eks/ validate'
                 }
             }
         }
@@ -41,11 +41,11 @@ pipeline {
                 withAWS(credentials: 'aws-creds', region: 'ap-south-1') {
                     script {    
                         if (params.Terraform_Action == 'plan') {
-                            sh "terraform -chdir=eks/ plan -var-file=${params.Environment}.tfvars"
+                            sh "terraform -chdir=prod/eks/ plan -var-file=${params.Environment}.tfvars"
                         }   else if (params.Terraform_Action == 'apply') {
-                            sh "terraform -chdir=eks/ apply -var-file=${params.Environment}.tfvars -auto-approve"
+                            sh "terraform -chdir=prod/eks/ apply -var-file=${params.Environment}.tfvars -auto-approve"
                         }   else if (params.Terraform_Action == 'destroy') {
-                            sh "terraform -chdir=eks/ destroy -var-file=${params.Environment}.tfvars -auto-approve"
+                            sh "terraform -chdir=prod/eks/ destroy -var-file=${params.Environment}.tfvars -auto-approve"
                         } else {
                             error "Invalid value for Terraform_Action: ${params.Terraform_Action}"
                         }
