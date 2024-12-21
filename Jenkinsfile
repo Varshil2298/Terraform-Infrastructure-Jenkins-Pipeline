@@ -24,21 +24,21 @@ pipeline {
         }
         stage('Init') {
             steps {
-                withAWS(credentials: 'aws-creds', region: 'ap-south-1') {
+                withAWS(credentials: 'prod-aws-creds', region: 'ap-south-1') {
                 sh 'terraform -chdir=prod/eks/ init -reconfigure'
                 }
             }
         }
         stage('Validate') {
             steps {
-                withAWS(credentials: 'aws-creds', region: 'ap-south-1') {
+                withAWS(credentials: 'prod-aws-creds', region: 'ap-south-1') {
                 sh 'terraform -chdir=prod/eks/ validate'
                 }
             }
         }
         stage('Action') {
             steps {
-                withAWS(credentials: 'aws-creds', region: 'ap-south-1') {
+                withAWS(credentials: 'prod-aws-creds', region: 'ap-south-1') {
                     script {    
                         if (params.Terraform_Action == 'plan') {
                             sh "terraform -chdir=prod/eks/ plan -var-file=${params.Environment}.tfvars"
