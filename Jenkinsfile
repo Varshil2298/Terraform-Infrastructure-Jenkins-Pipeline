@@ -21,7 +21,7 @@ pipeline {
             steps {
                 git branch: 'dev/feature', 
                 url: 'https://github.com/Varshil2298/Terraform-Infrastructure-Jenkins-Pipeline.git',
-                credentialsId: "github-pat" 
+           //     credentialsId: "github-pat" 
             }
         }
         stage('Init') {
