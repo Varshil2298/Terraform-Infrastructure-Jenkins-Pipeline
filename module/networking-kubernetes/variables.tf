@@ -36,7 +36,7 @@ variable "is_eks_nodegroup_role_enabled" {
 # EKS
 variable "is-eks-cluster-enabled" {}
 variable "cluster-version" {}
-#variable "endpoint-private-access" {}
+variable "endpoint-private-access" {}
 variable "endpoint-public-access" {}
 variable "addons" {
   type = list(object({
